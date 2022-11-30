@@ -1,0 +1,38 @@
+<div class="container">
+  <h4>LISTA DE ALUMNOS - CURSO PROGRAMACION ORIENTADA A OBJETOS - UPN</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Codigo Estudiante</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let alumno of alumnos">
+        <th scope="row">{{alumno.id}}</th>
+        <th>{{alumno.codigo}}</th>
+        <th>{{alumno.nombre}}</th>
+        <th>{{alumno.apellidos}}</th>
+        <th>
+          <span class="badge rounded-pill justify-content-center"
+            [ngClass]="alumno.nota > 10 ? 'bg-success': 'bg-danger' ">{{alumno.nota}}
+          </span>
+        </th>
+        <th>
+          <span *ngIf="alumno.aprobado" class="text-success">
+            Aprobado
+          </span>
+          <span *ngIf="!alumno.aprobado" class="text-danger">
+            Desaprobado
+          </span>
+        </th>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
